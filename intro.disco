@@ -1,0 +1,50 @@
+import num
+
+-- Defining a simple function
+-- f : N -> N
+-- f is a function which takes 
+-- a natural number as input 
+-- and returns another one as output
+
+||| f returns twice its input plus one
+!!! f(5) == 11
+!!! forall n:N. odd(f(n))
+f : N -> N
+f(n) = 2n + 1
+
+-- Everything in Disco has a *type*, which
+-- tells us what kind of value it is (or will be)
+
+-- blah : T means blah has type T.
+
+-- We can ask for the type of something with the :type command
+
+-- N is the type of "Natural  numbers" (0, 1, 2, 3, 4, 5, 6 ...)
+-- Natural numbers are *closed* under addition and multiplication
+-- i.e if we add or multiply any two natural numbers, we get
+-- another natural number
+
+-- Natural numbers are not closed under subtraction
+-- if we want subtraction we have to include all negative
+-- integers too.
+-- These are called the integers, abbreviated Z
+
+-- Defining functions in Disco
+-- The type of a function in Disco looks like A -> B
+-- where A is the type of the input and B is the type
+-- the output.
+
+!!! double(2) == 4
+!!! double(0) == 0
+!!! forall n:N. even(double(n))
+!!! forall n:N. (n == 0) or double(n) > n
+!!! forall n:N. double(n) <= 1000000000
+        -- this is false but Disco cant tell
+double : N -> N
+double(n) = 2n
+
+-- Factorial: n! = n * (n-1) * (n-2) ...
+
+fact : N -> N
+fact(0) = 1
+fact(n) = n * fact(n.-1)

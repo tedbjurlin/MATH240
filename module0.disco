@@ -1,0 +1,96 @@
+-- MATH 240 Discrete Math Module 0: Introduction to Disco
+
+import prim
+
+----------------------------------------------------------------------
+-- Exercise 1. :load this file into Disco and evaluate f(1), f(2), and
+-- f(3).  Fill in the correct values in the tests below, by removing
+-- each 'crash "fill me in"' and replacing it with the correct number.
+-- A test for f(0) has already been filled in for you.
+----------------------------------------------------------------------
+
+!!! f(0) =!= 27
+!!! f(1) =!= 32
+!!! f(2) =!= 55
+!!! f(3) =!= 114
+f : N -> N
+f(n) = 3n^3 + 2n + 27
+
+----------------------------------------------------------------------
+-- Exercise 2.  Write a definition for the function g below that makes
+-- the tests true.
+----------------------------------------------------------------------
+
+!!! g(0) =!= 3
+!!! g(2) =!= 7
+!!! g(5) =!= 13
+!!! forall n:N. g(n) > n
+g : N -> N
+
+g(n) = 2n + 3
+
+----------------------------------------------------------------------
+-- Exercise 3.  Uncomment the function h below (by removing the "--"
+-- from the beginning of both lines).  Its definition is not accepted
+-- by Disco.  Explain why the definition is not accepted, and fix the
+-- type of h so that it is accepted.
+----------------------------------------------------------------------
+
+-- The subtraction in the definition of h causes Disco to think that
+-- non-natural number values are possibly from natural number inputs.
+-- The type calls for natural inputs and outputs. It is fixed by
+-- allowing the output type to be all integers (Z).
+
+!!! h(0) =!= -5
+!!! h(10) =!= 25
+!!! h(13) =!= 34
+!!! forall n:N. h(n) /= n
+h : N -> Z
+h(n) = 3n - 5
+
+----------------------------------------------------------------------
+-- Exercise 4. Now go back and add some tests for the function h.  You
+-- should add at least three different "unit tests" (i.e. simple
+-- equality tests) and one test with a "forall", but otherwise the
+-- tests can be whatever you want, as long as they are accepted by
+-- Disco.
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+-- Exercise 5. Define a function which returns 0 when the input is 0,
+-- and otherwise returns five less than the square of the input.  Be
+-- sure to write some tests for your function.
+----------------------------------------------------------------------
+
+!!! i(0) =!= 0
+!!! i(2) =!= -1
+!!! i(5) =!= 20
+!!! i(10) =!= 95
+i : Z -> Z
+i(0) = 0
+i(n) = n^2 - 5
+
+----------------------------------------------------------------------
+-- Exercise 6.  Look up the .- operator by typing ':doc .-' at the
+-- Disco prompt. Explain what it does in your own words.
+----------------------------------------------------------------------
+
+-- The .- operator works the same as the subtraction operator, with the
+-- lowest output it gives is zero. If the result of the subtraction is
+-- lower than zero then .- gives a result of 0 instead.
+
+----------------------------------------------------------------------
+-- Exercise 7. Write a definition for the function sumto below.
+-- sumto(n) should add up all the natural numbers from 1 up to n,
+-- that is, sumto(n) = 1 + 2 + 3 + ... + n.
+----------------------------------------------------------------------
+
+!!! sumto(0) =!= 0
+!!! sumto(1) =!= 1
+!!! sumto(2) =!= 1 + 2
+!!! sumto(3) =!= 1 + 2 + 3
+!!! sumto(10) =!= 55
+sumto : N -> N
+
+sumto(0) = 0
+sumto(n) = n + sumto(n.-1)
