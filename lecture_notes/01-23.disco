@@ -1,0 +1,69 @@
+-- 01/23
+
+-- a ticket costs 1.5 dollars
+
+-- tickets >= 30 or (there are no heffalumps and count > 5)
+
+-- ----------------------------------
+
+-- Propositional logic
+
+-- Def: a proposition is a declarative statement that can be
+-- either true or false
+
+-- eg. "Toronto is the capital of Canada" - false
+--      "Wash. DC is the capital of the US" - True
+
+-- non-examples:
+--      "Could you hold this?" - a question
+--      "x + 2 = 5" - not a proposition because
+--              x is not known
+
+-- ----------------------
+
+-- Negation
+
+-- Def: If P is a proposition, the negation of P is
+-- also a proposition, write not(P), ¬P, or P with a
+-- bar over it. Where not(P) is true, P is false and
+-- vice versa.
+
+--      P | ¬P
+--      --|---
+--      T | F
+--      F | T
+
+
+-- -----------------------
+
+-- Conjunction (AND)
+
+-- Def: if P and Q are propositions, their conjunction
+-- written "P and Q" or "P /\ Q" is also a proposition
+-- which is true when P and Q are both true and false
+-- otherwise.
+
+--      P | Q | P/\Q
+--      --|---|-----
+--      T | T | T
+--      T | F | F
+--      F | F | F
+--      F | T | F
+
+-- -----------------------
+
+-- Disjunction (OR)
+
+-- Def: if P and Q are propositions, their disjunction
+-- written "P or Q" or "P \/ Q", is also a proposition
+-- which is false when both P and Q are false, and 
+-- true otherwise.
+
+-- "Inclusive or" OK if both are true
+
+--      P | Q | P\/Q
+--      ------------
+--      T | T | T
+--      T | F | T
+--      F | T | T
+--      F | F | F

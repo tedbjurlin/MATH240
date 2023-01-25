@@ -1,0 +1,83 @@
+-- 01/25
+
+-- R = "It is raining"
+-- P = "I ate eggs for breakfast"
+-- Q = "I ate ceral for breakfst"
+
+-- It is raining, or I ate eggs and not cereal.
+--      ->
+--      R \/ (P /\ not Q)
+--      or
+--      (R \/ P) /\ not Q
+--      not the same meaning, both ways to write statement
+
+--      R \/ P /\ not Q == R \/ (P /\ not Q) because /\
+--      has a higher precedence.
+
+-- -----------------------------------------------------------------------------
+
+-- Implication
+
+-- Def If P, Q are prepositions, then the implication (or conditional) "if P
+-- then Q", written P -> Q is also a preposition
+
+--      P | Q | P -> Q          \ ex. P = "You complete all
+--      --------------          \       requirements for an
+--      T | T | T               \       A.""
+--      T | F | F               \     Q = "You get an A."
+--      F | T | T               \
+--      F | F | T               \
+
+-- Lots of ways to write P -> Q in English:
+--  - "If P, (then) Q"
+--  - "Whenever P, Q"
+--  - "Q if P"
+
+-- Also lots of ways to write P /\ Q:
+--  - "P and Q"
+--  - "P but Q"
+
+-- -----------------------------------------------------------------------------
+
+-- Biconditional
+
+-- Def: If P, Q are prepositions, the biconditional
+--  "P if and only if Q", written P <-> Q, is also a
+--  preposition
+
+--  P | Q | P <-> Q     | P <-> is true when:
+--  ---------------     |   - P and Q are the same
+--  T | T | T           |   - P -> Q and Q -> P
+--  T | F | F           |       are both true.
+--  F | T | F           |
+--  F | F | T           |
+
+-- -----------------------------------------------------------------------------
+
+-- Claim : P -> Q is the same as ¬P \/ Q.
+--  How can we convince ourselves of this?
+
+--  Make a truth table, see if they are the same
+--  in every possible scenario.
+
+-- P | Q | P -> Q | ¬P | ¬P\/Q
+-- ---------------------------
+-- T | T | T      | F  | T
+-- T | F | F      | F  | F
+-- F | T | T      | T  | T
+-- F | F | T      | T  | T
+
+-- -----------------------------------------------------------------------------
+
+-- Claim : P /\ ( Q \/ R) is the same as (P /\ Q) \/ (P /\ R)
+
+-- P | Q | R | Q \/ R | P /\ (Q \/ R) | P /\ Q | P /\ R | (P /\ Q) \/ (P /\ R)
+-- ---------------------------------------------------------------------------
+-- T | T | T | T      | T             | T      | T      | T
+-- T | T | F | T      | T             | T      | F      | T
+-- T | F | T | T      | T             | F      | T      | T
+-- T | F | F | F      | F             | F      | F      | F
+-- F | T | T | T      | F             | F      | F      | F
+-- F | T | F | T      | F             | F      | F      | F
+-- F | F | T | T      | F             | F      | F      | F
+-- F | F | F | T      | F             | F      | F      | F
