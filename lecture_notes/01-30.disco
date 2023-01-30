@@ -1,0 +1,60 @@
+-- 01/30
+
+-- Predicates and Quantifiers
+
+-- Goal: Talk formally about logical statements involving 'all' or 'some'.
+
+-- -----------------------------------------------------------------------------
+
+-- x + 2 == 5 is not a proposition because we don't know what x is. Raises an
+-- error in disco. 
+-- But it is almost a proposition. If we knew what x was we would have a
+-- proposition.
+-- By making it a *function* that takes x as input and returns the proposition
+-- we have a logical statment. This is called a *predicate*.
+
+P : N -> Bool
+P(x) = (x + 2 == 5)
+
+-- We can also make multi-argument predicates.
+
+T : N * N -> Bool
+T(x,y) = (x < y^2)
+
+-- -----------------------------------------------------------------------------
+
+-- For All
+
+-- Def: If P(x) is a predicate (i.e. a function that returns a proposition) and
+--  D is some "domain" (i.e. a set of values, i.e. a type), then
+--  
+--              ∀x:D. P(x)
+--
+--  (pronounced "for all x in D, P(x)") is a proposition which is true if
+--  P(x) is true for all x in the domain D.
+--  (People also use the notation ∀x∈D. P(x))
+--  (D is also called the "domain of discourse"; somtimes ommitted)
+
+-- Note, we can think of ∀ as being like a giant "and". That is,
+--
+--          ∀x:D. P(x) ≈ P(d_1) /\ P(d_2) /\ P(d_3) /\ ...
+--  where d_1,d_2,d_3,... are all the values in the domain D. This helps us 
+--  understand the properties of ∀.
+
+-- -----------------------------------------------------------------------------
+
+-- There Exists
+
+-- Def: If P(x) is a predicate and D is a domain, then 
+--
+--              ∃x:D. P(x)
+--
+--  (pronounced "there exists x in D such that P(x)") is a proposition which is
+--  true iff there is at least one value of x in domain D for which P(x)
+
+-- kind of like ∃x:D. P(x) ≈ P(d_1) \/ P(d_2) \/ P(d_3) \/ ...
+
+-- Hence
+--      ¬(∀x:D. P(x)) ≡ ∃x:D. P(x)
+--      ¬(∃x:D. P(x)) ≡ ∀x:D. P(x)
+

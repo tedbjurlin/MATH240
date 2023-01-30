@@ -1,0 +1,40 @@
+using primitives
+
+-- Exercise D1. Complete the definition of the xor function below.
+
+||| xor computes the *exclusive or* of its inputs; it is true when
+||| exactly one of its inputs is true. That is, xor(p,q) should be
+||| true when one or the other of p or q is true, but false if either
+||| both p and q are false, or both p and q are true.
+
+!!! xor(false, false) == false
+!!! xor(false, true ) == true
+!!! xor(true , false) == true
+!!! xor(true , true ) == false
+
+xor : Bool * Bool -> Bool    -- This says that xor takes a pair of true/false values as input
+                             --   and returns one as output
+
+xor(p,q) = (p \/ q) /\ not (p /\ q)
+  -- Delete $crash and the following message above, and replace it
+  -- with a definition of xor, making use of other built-in operators in Disco
+  -- such as /\, \/, ->, not.  You will know that you were successful if :loading
+  -- this file at the Disco prompt gives a message saying "xor: OK".
+
+
+-- Exercise D2. Write a Disco function that implements a Toffoli gate
+-- (https://en.wikipedia.org/wiki/Toffoli_gate).  This function takes
+-- three Boolean values as input, and returns three Boolean values as
+-- output.  The first two Boolean values are returned unchanged.  The
+-- third is inverted if the first two are both True, and unchanged
+-- otherwise.
+--
+-- As an optional challenge, see if you can implement it with just a
+-- single line of code. (See the Wikipedia article for hints.)
+
+!!! toffoli(true, true, false) =!= (true, true, true)
+!!! toffoli(true, true, true) =!= (true, true, false)
+!!! toffoli(false, true, false) =!= (false, true, false)
+
+toffoli : Bool * Bool * Bool -> Bool * Bool * Bool
+toffoli(p,q,r) = (p, q, xor(r,(p /\ q)))

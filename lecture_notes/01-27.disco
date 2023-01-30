@@ -1,0 +1,42 @@
+-- 01/27
+
+-- Name           | Equivalence                           | "opposite world" version
+-- ----------------------------------------------------------------------------------------------
+-- Identity       | p /\ T ≡ p                            | p \/ F ≡ p
+-- Annihilation   | p /\ F ≡ F                            | p \/ T ≡ T
+-- Idempotence    | p /\ p ≡ p                            | p \/ p ≡ p
+-- Commutativity  | p /\ q ≡ q /\ p                       | p \/ q ≡ q \/ p
+-- Associativity  | (p /\ q) /\ r ≡ p /\ (q /\ r)         | (p \/ q) \/ r ≡ p \/ (q \/ r)
+-- Distributivity | p /\ ( q \/ r) ≡ (p /\ q) \/ (p /\ r) | p \/ ( q /\ r) ≡ (p \/ q) /\ (p \/ r)
+-- De Morgan      | ¬(p /\ q) ≡ ¬p \/ ¬q                  | ¬(p \/ q) ≡ ¬p \/ ¬q
+--                | Contradiction: p /\ ¬p ≡ F            | Law of Excluded Middle: p \/ ¬p ≡ T
+
+-- Example: Prove (p -> q) /\ (p -> r) ≡ p -> (p /\ r)
+--  Strategy: use a series of equivalences
+--      (p -> q) /\ ( p -> r) ≡ ... ≡ ... ≡ ... ≡ p -> (q /\ r)
+
+-- (p -> q) /\ (p -> r)
+-- ≡            { Implication }
+-- (¬p \/ q) /\ (¬p \/ r)
+-- ≡            { Distributivity}
+-- ¬p \/ (q /\ r)
+-- ≡            { Implication}
+-- p -> (q /\ r)
+-- ∎
+
+-- Example. show ¬(p \/ (¬p /\ q)) ≡ ¬p /\ ¬q
+
+-- ¬(q \/ (¬p /\ q))
+-- ≡            { De Morgan }
+-- ¬p /\ ¬(¬p /\ q)
+--              { De Morgan }
+-- ¬p /\ (¬(¬p) \/ ¬q)
+-- ≡            { Double Negation }
+-- ¬p /\ (p \/ ¬q)
+-- ≡            { Distributivity }
+-- (¬p /\ p) \/ (¬p /\ ¬q)
+-- ≡            { Contradiction } 
+-- F \/ (¬p /\ ¬q)
+-- ≡            { Identity }
+-- ¬p \/ ¬q
+-- ∎
